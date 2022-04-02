@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/tymon/jwt-auth" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/fruitcake/laravel-cors" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/asm89/stack-cors" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/fideloper/proxy" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/composer" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/facade/ignition-contracts" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/facade/flare-client-php" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/facade/ignition" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/kwmgostudent/vendor/dnoegel/php-xdg-base-dir" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.3">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/kwmgostudent/vendor/autoload.php" />
+    </phpunit_settings>
+  </component>
+</project>
