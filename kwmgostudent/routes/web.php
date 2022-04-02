@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $students = DB::table('students')->get();
-    return $students;
-});
+Route::get('/', [StudentController::class,'index']);
+Route::get('/students', [StudentController::class,'index']);
+Route::get('/students/{id}',[StudentController::class,'show']);

@@ -15,10 +15,11 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('personal_code');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('course_of_studies');
-            $table->date('studies_type');
+            $table->string('studies_type');
             $table->integer('semester');
             $table->bigInteger('phone');
             $table->string('email');

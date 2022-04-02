@@ -4,6 +4,10 @@
     <title>Hello World!</title>
 </head>
 <body>
-<h1>Hello, World</h1>
+<ul>
+    @foreach ($students as $student)
+        <li>{{$student->firstname}} {{$student->lastname}}</li>
+    @endforeach
+</ul>
 </body>
 </html>
