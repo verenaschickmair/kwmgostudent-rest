@@ -14,24 +14,36 @@ class CreateAppointmentsTable extends Migration
     public function up()
     {
         Schema::create('appointments', function (Blueprint $table) {
+            $table->id();
             $table->date('date');
-            $table->time('time');
-
-            $table->foreignId('provider_id')
-                ->constrained('students')
-                ->onDelete('cascade');
-
-            $table->foreignId('seeker_id')
-                ->constrained('students')
-                ->onDelete('cascade');
-
-            $table->foreignId('subject_id')
+            $table->time('time_from');
+            $table->time('time_to');
+            //fk user constraint -> neue Laravel 8 Schreibweise
+            $table->foreignId('offer_id')
                 ->constrained()
                 ->onDelete('cascade');
-
             $table->timestamps();
-            $table->primary(['provider_id', 'seeker_id', 'date', 'time']);
         });
+
+//        Schema::create('appointments', function (Blueprint $table) {
+//            $table->date('date');
+//            $table->time('time');
+//
+//            $table->foreignId('provider_id')
+//                ->constrained('users')
+//                ->onDelete('cascade');
+//
+//            $table->foreignId('seeker_id')
+//                ->constrained('users')
+//                ->onDelete('cascade');
+//
+//            $table->foreignId('subject_id')
+//                ->constrained()
+//                ->onDelete('cascade');
+//
+//            $table->timestamps();
+//            $table->primary(['provider_id', 'seeker_id', 'date', 'time']);
+//        });
 
 
     }

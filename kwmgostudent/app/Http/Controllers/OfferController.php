@@ -2,30 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Offer;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class StudentController extends Controller
+class OfferController extends Controller
 {
+    /**
+     * Gives back all users
+     */
     public function index() : JsonResponse{
-        $students = Student::with(['firstname', 'lastname', 'course_of_studies', 'semester'])->get();
-        return response()->json($students, 200);    }
-
-
-    public function findByPersonalCode(string $code) : Student {
-
-        $student = Student::where('personal_code', $code)
-            ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-            ->first();
-
-        return $student;
-
+        $offers = Offer::all(['id', 'name', 'description']);
+        return response()->json($offers, 200);
     }
 
-    public function checkPersonalCode (string $code) {
-        $student =  Student::where('personal_code', $code)->first();
+    public function findByUsername(string $username) : User {
+        $student = Offer::where('username', $username)
+            ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])
+            ->first();
+        return $student;
+    }
+
+    public function checkOffername (string $code) {
+        $student =  Offer::where('username', $code)->first();
         return $student != null ?
             response()->json(true, 200) :
             response()->json(false, 200);
@@ -37,21 +38,21 @@ class StudentController extends Controller
      * uses PDO parameter binding
      */
     public function findBySearchTerm(string $searchTerm) {
-        $student = Student::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
+        $student = Offer::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
             ->where('firstname', 'LIKE', '%' . $searchTerm. '%')
             ->orWhere('lastname' , 'LIKE', '%' . $searchTerm. '%')
-            ->orWhere('personal_code' , 'LIKE', '%' . $searchTerm. '%');
+            ->orWhere('username' , 'LIKE', '%' . $searchTerm. '%');
         return $student;
     }
 
     /**
-     * create new book
+     * create new user
      */
 
     public function save(Request $request) : JsonResponse {
         DB::beginTransaction();
         try {
-            $student = Student::create($request->all());
+            $student = Offer::create($request->all());
             DB::commit();
             return response()->json($student, 201);
         }
@@ -65,14 +66,24 @@ class StudentController extends Controller
     {
         DB::beginTransaction();
         try {
-            $student = Student::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-                ->where('personal_code', $code)->first();
+            $student = Offer::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
+                ->where('username', $code)->first();
             if ($student != null) {
                 $student->update($request->all());
                 $student->save();
             }
+            //update authors
+
+            $ids = [];
+            if (isset($request['authors']) && is_array($request['authors'])) {
+                foreach ($request['authors'] as $auth) {
+                    array_push($ids,$auth['id']);
+                }
+            }
+            $student->authors()->sync($ids);
+
             DB::commit();
-            $student1 = Student::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
+            $student1 = Offer::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
                 ->where('personal_code', $code)->first();
             // return a vaild http response
             return response()->json($student1, 201);
@@ -89,7 +100,7 @@ class StudentController extends Controller
      */
     public function delete(string $code) : JsonResponse
     {
-        $student = Student::where('personal_code', $code)->first();
+        $student = Offer::where('personal_code', $code)->first();
         if ($student != null) {
             $student->delete();
         }

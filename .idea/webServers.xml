@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c26761b4-2343-4388-9f01-0838f772a798" name="HETZNER" url="http://kwmgostudent.s1910456028.student.kwmhgb.at/">
+      <webServer id="c26761b4-2343-4388-9f01-0838f772a798" name="HETZNER" url="http://api.kwmgostudent.s1910456028.student.kwmhgb.at/">
         <fileTransfer rootFolder="/usr/home/sstud783/public_html/kwmgostudent/studentServer" accessType="SFTP" host="dedi50.your-server.de" port="222" sshConfigId="83f825c2-7121-4651-b2bd-407462f7d186" sshConfig="sstud783@dedi50.your-server.de:222 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />

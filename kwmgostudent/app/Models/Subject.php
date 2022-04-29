@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Subject extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'name', 'lecturer'];
+    protected $fillable = ['id', 'lva', 'name', 'description'];
 
-    //belongsToMany Relation n:m
-    public function students(): BelongsToMany
+    //Offers: hasMany Relation 1:n
+    public function offers(): hasMany
     {
-        return $this->belongsToMany(Student::class)->withTimeStamps();
+        return $this->hasMany(Offer::class);
     }
 }

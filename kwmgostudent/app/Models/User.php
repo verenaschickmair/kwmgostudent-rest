@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\belongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
     use HasFactory, Notifiable;
 
@@ -18,7 +18,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'status',
+        'username', 'password', 'firstname', 'lastname', 'course_of_studies',
+        'studies_type', 'semester', 'phone', 'email', 'status',
     ];
 
     /**
@@ -39,10 +40,26 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //belongsTo Relation 1:1
-    public function student(): belongsTo
+    public function getJWTIdentifier()
     {
-        return $this->belongsTo(Student::class);
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims()
+    {
+        return ['user' => ['id' => $this->id]];
+    }
+
+    /**
+     * Checks if user is searcher or teacher
+     */
+    public function isSearcher(int $status) : bool{
+        return $status === 0;
+    }
+
+    //Offers: hasMany Relation 1:n
+    public function offers() : hasMany{
+        return $this->hasMany(Offer::class);
     }
 }
 
