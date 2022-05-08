@@ -9,6 +9,7 @@ use App\Models\User;
 use DateTime;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class OffersTableSeeder extends Seeder
 {
@@ -34,11 +35,14 @@ class OffersTableSeeder extends Seeder
             $appointment1->date=DateTime::createFromFormat('d/m/Y', '23/05/2013');
             $appointment1->time_from=date('H:i',strtotime('17:00'));
             $appointment1->time_to=date('H:i',strtotime('20:00'));
+            $appointment1->user_id=null;
 
             $appointment2 = new Appointment;
             $appointment2->date=DateTime::createFromFormat('d/m/Y', '24/05/2013');
             $appointment2->time_from=date('H:i',strtotime('19:00'));
             $appointment2->time_to=date('H:i',strtotime('20:00'));
+            $appointment2->user_id=null;
+
             $offer->appointments()->saveMany([$appointment1,$appointment2]);
 
             $offer->save();
@@ -47,7 +51,7 @@ class OffersTableSeeder extends Seeder
             $offer = new Offer;
             $offer->name="Angebot für Informatik";
             $offer->description=Str::random(10);
-            $user = User::all()->first();
+            $user = User::find(2);
             $offer->user()->associate($user);
             $subject = Subject::all()->first();
             $offer->subject()->associate($subject);
@@ -58,11 +62,13 @@ class OffersTableSeeder extends Seeder
             $appointment1->date=DateTime::createFromFormat('d/m/Y', '21/05/2013');
             $appointment1->time_from=date('H:i',strtotime('11:00'));
             $appointment1->time_to=date('H:i',strtotime('14:00'));
+            $appointment1->user_id=NULL;
 
             $appointment2 = new Appointment;
             $appointment2->date=DateTime::createFromFormat('d/m/Y', '22/05/2013');
             $appointment2->time_from=date('H:i',strtotime('15:00'));
             $appointment2->time_to=date('H:i',strtotime('18:00'));
+            $appointment2->user_id=NULL;
             $offer->appointments()->saveMany([$appointment1,$appointment2]);
 
             $offer->save();

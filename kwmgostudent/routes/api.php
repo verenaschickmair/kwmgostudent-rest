@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +30,7 @@ Route::group(['middleware' => ['api', 'auth.jwt']], function(){
 
 //auth
 Route::post('auth/login', [AuthController::class,'login']);
+Route::get('subjects',[SubjectController::class,'index']);
+Route::get('subject_detail', [SubjectController::class,'index']);
 Route::get('offers',[OfferController::class,'index']);
 Route::get('offer_detail', [OfferController::class,'index']);

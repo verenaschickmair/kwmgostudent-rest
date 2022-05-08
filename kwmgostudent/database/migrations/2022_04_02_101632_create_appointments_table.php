@@ -22,6 +22,10 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('offer_id')
                 ->constrained()
                 ->onDelete('cascade');
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
             $table->timestamps();
         });
 

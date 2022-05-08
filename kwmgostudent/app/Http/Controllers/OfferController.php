@@ -18,12 +18,12 @@ class OfferController extends Controller
         return response()->json($offers, 200);
     }
 
-    public function findByUsername(string $username) : User {
-        $student = Offer::where('username', $username)
-            ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-            ->first();
-        return $student;
-    }
+//    public function findByUsername(string $username) : User {
+//        $student = Offer::where('username', $username)
+//            ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])
+//            ->first();
+//        return $student;
+//    }
 
     public function checkOffername (string $code) {
         $student =  Offer::where('username', $code)->first();
