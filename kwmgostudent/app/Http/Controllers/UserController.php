@@ -18,6 +18,10 @@ class UserController extends Controller
         return response()->json($students, 200);
     }
 
+    public function findById(int $id) : User {
+        return User::where('id', $id)->first();
+    }
+
     public function findByUsername(string $username) : User {
         $student = User::where('username', $username)
             ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])

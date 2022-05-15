@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Appointment;
+use App\Models\Comment;
 use App\Models\Offer;
 use App\Models\Subject;
 use App\Models\User;
@@ -70,6 +71,16 @@ class OffersTableSeeder extends Seeder
             $appointment2->time_to=date('H:i',strtotime('18:00'));
             $appointment2->user_id=NULL;
             $offer->appointments()->saveMany([$appointment1,$appointment2]);
+
+            // add comments to offer
+            $comment1 = new Comment;
+            $comment1->description=Str::random(100);
+            $comment1->user_id=2;
+
+            $comment2 = new Comment;
+            $comment2->description=Str::random(100);
+            $comment2->user_id=1;
+            $offer->comments()->saveMany([$comment1,$comment2]);
 
             $offer->save();
         }

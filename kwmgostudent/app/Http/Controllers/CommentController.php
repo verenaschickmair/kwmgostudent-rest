@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Appointment;
+use App\Models\Comment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class AppointmentController extends Controller
+class CommentController extends Controller
 {
     public function index() : JsonResponse{
-        $offers = Appointment::all(['id', 'date', 'time_from', 'time_to']);
+        $offers = Comment::all(['id', 'date', 'time_from', 'time_to']);
         return response()->json($offers, 200);
     }
 
     public function getAllByOfferId(int $id) : JsonResponse{
-        $offers = Appointment::where('offer_id', $id)->get();
+        $offers = Comment::where('offer_id', $id)->get();
         return response()->json($offers, 200);
     }
 }

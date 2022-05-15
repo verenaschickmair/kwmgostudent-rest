@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offer;
-use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,6 +15,15 @@ class OfferController extends Controller
     public function index() : JsonResponse{
         $offers = Offer::all(['id', 'name', 'description']);
         return response()->json($offers, 200);
+    }
+
+    public function getAllBySubjectId(int $id) : JsonResponse{
+        $offers = Offer::where('subject_id', $id)->get();
+        return response()->json($offers, 200);
+    }
+
+    public function findById(int $id) : Offer {
+        return Offer::where('id', $id)->first();
     }
 
 //    public function findByUsername(string $username) : User {

@@ -25,8 +25,13 @@ class Offer extends Model
         return $this->belongsTo(Subject::class);
     }
 
-    //Subject: hasMany Relation 1:n
+    //Appointments: hasMany Relation 1:n
     public function appointments(): hasMany{
         return $this->hasMany(Appointment::class);
+    }
+
+    //Comments: hasMany Relation 1:n
+    public function comments(): hasMany{
+        return $this->hasMany(Comment::class);
     }
 }
