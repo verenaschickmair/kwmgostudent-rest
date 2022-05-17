@@ -27,7 +27,7 @@ class OfferController extends Controller
     }
 
 //    public function findByUsername(string $username) : User {
-//        $student = Offer::where('username', $username)
+//        $offer = Offer::where('username', $username)
 //            ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])
 //            ->first();
 //        return $student;
@@ -60,41 +60,40 @@ class OfferController extends Controller
     public function save(Request $request) : JsonResponse {
         DB::beginTransaction();
         try {
-            $student = Offer::create($request->all());
+            $offer = Offer::create($request->all());
             DB::commit();
-            return response()->json($student, 201);
+            return response()->json($offer, 201);
         }
         catch (\Exception $e) {
             DB::rollBack();
-            return response()->json("saving student failed:" . $e->getMessage(), 420);
+            return response()->json("saving offer failed:" . $e->getMessage(), 420);
         }
     }
 
-    public function update(Request $request, string $code) : JsonResponse
+    public function update(Request $request, string $id) : JsonResponse
     {
         DB::beginTransaction();
         try {
-            $student = Offer::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-                ->where('username', $code)->first();
-            if ($student != null) {
-                $student->update($request->all());
-                $student->save();
+            $offer = Offer::with(['appointments'])
+                ->where('id', $id)->first();
+            if ($offer != null) {
+                $offer->update($request->all());
+                $offer->save();
             }
-            //update authors
-
+            //update appointments
             $ids = [];
-            if (isset($request['authors']) && is_array($request['authors'])) {
-                foreach ($request['authors'] as $auth) {
-                    array_push($ids,$auth['id']);
+            if (isset($request['appointments']) && is_array($request['appointments'])) {
+                foreach ($request['appointments'] as $app) {
+                    array_push($ids,$app['id']);
                 }
             }
-            $student->authors()->sync($ids);
+            $offer->appointments()->sync($ids);
 
             DB::commit();
-            $student1 = Offer::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-                ->where('personal_code', $code)->first();
+            $offer1 = Offer::with(['appointments'])
+                ->where('id', $id)->first();
             // return a vaild http response
-            return response()->json($student1, 201);
+            return response()->json($offer1, 201);
         }
         catch (\Exception $e) {
             // rollback all queries
@@ -108,9 +107,9 @@ class OfferController extends Controller
      */
     public function delete(string $code) : JsonResponse
     {
-        $student = Offer::where('personal_code', $code)->first();
-        if ($student != null) {
-            $student->delete();
+        $offer = Offer::where('personal_code', $code)->first();
+        if ($offer != null) {
+            $offer->delete();
         }
         else
             throw new \Exception("student couldn't be deleted - it does not exist");

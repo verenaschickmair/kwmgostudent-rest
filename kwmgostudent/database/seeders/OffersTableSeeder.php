@@ -27,7 +27,7 @@ class OffersTableSeeder extends Seeder
             $offer->description=Str::random(10);
             $user = User::all()->first();
             $offer->user()->associate($user);
-            $subject = Subject::all()->first();
+            $subject = Subject::find(1);
             $offer->subject()->associate($subject);
             $offer->save();
 
@@ -54,7 +54,43 @@ class OffersTableSeeder extends Seeder
             $offer->description=Str::random(10);
             $user = User::find(2);
             $offer->user()->associate($user);
-            $subject = Subject::all()->first();
+            $subject = Subject::find(2);
+            $offer->subject()->associate($subject);
+            $offer->save();
+
+            // add appointments to offer
+            $appointment1 = new Appointment;
+            $appointment1->date=DateTime::createFromFormat('d/m/Y', '21/05/2013');
+            $appointment1->time_from=date('H:i',strtotime('11:00'));
+            $appointment1->time_to=date('H:i',strtotime('14:00'));
+            $appointment1->user_id=NULL;
+
+            $appointment2 = new Appointment;
+            $appointment2->date=DateTime::createFromFormat('d/m/Y', '22/05/2013');
+            $appointment2->time_from=date('H:i',strtotime('15:00'));
+            $appointment2->time_to=date('H:i',strtotime('18:00'));
+            $appointment2->user_id=NULL;
+            $offer->appointments()->saveMany([$appointment1,$appointment2]);
+
+            // add comments to offer
+            $comment1 = new Comment;
+            $comment1->description=Str::random(100);
+            $comment1->user_id=2;
+
+            $comment2 = new Comment;
+            $comment2->description=Str::random(100);
+            $comment2->user_id=1;
+            $offer->comments()->saveMany([$comment1,$comment2]);
+
+            $offer->save();
+        }
+        {
+            $offer = new Offer;
+            $offer->name="Angebot für Deutsch";
+            $offer->description=Str::random(10);
+            $user = User::find(1);
+            $offer->user()->associate($user);
+            $subject = Subject::find(3);
             $offer->subject()->associate($subject);
             $offer->save();
 

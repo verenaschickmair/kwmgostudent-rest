@@ -46,3 +46,5 @@ Route::get('offers',[OfferController::class,'index']);
 Route::get('offers/{id}',[OfferController::class,'findById']);
 Route::get('offers/{id}/appointments',[AppointmentController::class,'getAllByOfferId']);
 Route::get('offers/{id}/comments',[CommentController::class,'getAllByOfferId']);
+Route::put('offers/{id}',[OfferController::class,'update']);
+Route::post('offers/{id}',[OfferController::class,'save']);
