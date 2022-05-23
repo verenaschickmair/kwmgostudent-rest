@@ -111,6 +111,5 @@ class UserController extends Controller
         else
             throw new \Exception("student couldn't be deleted - it does not exist");
         return response()->json('student (' . $code . ') successfully deleted', 200);
-
     }
 }

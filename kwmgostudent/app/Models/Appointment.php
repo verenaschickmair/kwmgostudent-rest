@@ -12,7 +12,7 @@ class Appointment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id', 'date', 'timeFrom', 'timeTo', 'offer_id', 'user_id'
+        'date', 'time_from', 'time_to', 'user_id'
     ];
 
     //Offer: belongsTo Relation n:1
