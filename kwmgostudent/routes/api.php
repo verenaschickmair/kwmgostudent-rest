@@ -39,6 +39,11 @@ Route::group(['middleware' => ['api', 'auth.jwt']], function(){
     Route::post('offers/{id}', [CommentController::class,'save']);
     Route::delete('comments/{id}', [CommentController::class,'delete']);
     Route::put('comments/{id}', [CommentController::class,'update']);
+
+    //APPOINTMENTS
+    Route::put('appointments/{id}', [AppointmentController::class,'book']);
+    Route::get('appointments/user/{id}', [AppointmentController::class,'getAllByUserId']);
+
 });
 
 //AUTH
