@@ -28,28 +28,6 @@ class CreateAppointmentsTable extends Migration
                 ->onDelete('cascade');
             $table->timestamps();
         });
-
-//        Schema::create('appointments', function (Blueprint $table) {
-//            $table->date('date');
-//            $table->time('time');
-//
-//            $table->foreignId('provider_id')
-//                ->constrained('users')
-//                ->onDelete('cascade');
-//
-//            $table->foreignId('seeker_id')
-//                ->constrained('users')
-//                ->onDelete('cascade');
-//
-//            $table->foreignId('subject_id')
-//                ->constrained()
-//                ->onDelete('cascade');
-//
-//            $table->timestamps();
-//            $table->primary(['provider_id', 'seeker_id', 'date', 'time']);
-//        });
-
-
     }
 
     /**

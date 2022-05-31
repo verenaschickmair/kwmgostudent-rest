@@ -18,7 +18,7 @@ class OfferController extends Controller
         return response()->json($offers, 200);
     }
 
-    public function getAllBySubjectId(int $id) : JsonResponse{
+    public function findAllBySubjectId(int $id) : JsonResponse{
         $offers = Offer::where('subject_id', $id)
             ->with(['appointments', 'comments'])
             ->get();
@@ -31,29 +31,15 @@ class OfferController extends Controller
             ->first();
     }
 
-    public function findByUserId(int $user_id) : JsonResponse{
+    public function findAllByUserId(int $user_id) : JsonResponse{
         $offers = Offer::with(['appointments', 'comments'])
             ->where('user_id', $user_id)
             ->get();
         return response()->json($offers, 200);
     }
 
-//    public function findByUsername(string $username) : User {
-//        $offer = Offer::where('username', $username)
-//            ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-//            ->first();
-//        return $student;
-//    }
-
-    public function checkOffername (string $code) {
-        $student =  Offer::where('username', $code)->first();
-        return $student != null ?
-            response()->json(true, 200) :
-            response()->json(false, 200);
-    }
-
     /**
-     * find book by search term
+     * find offer by search term
      * SQL injection is prevented by default, because Eloquent
      * uses PDO parameter binding
      */
@@ -66,7 +52,7 @@ class OfferController extends Controller
     }
 
     /**
-     * create new user
+     * create new offer
      */
 
     public function save(Request $request) : JsonResponse {
@@ -138,7 +124,7 @@ class OfferController extends Controller
     }
 
     /**
-     * returns 200 if book deleted successfully, throws excpetion if not
+     * returns 200 if offer deleted successfully, throws excpetion if not
      */
     public function delete(string $id) : JsonResponse
     {

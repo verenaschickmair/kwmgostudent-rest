@@ -14,7 +14,7 @@ class CommentController extends Controller
         return response()->json($offers, 200);
     }
 
-    public function getAllByOfferId(int $id) : JsonResponse{
+    public function findAllByOfferId(int $id) : JsonResponse{
         $offers = Comment::where('offer_id', $id)->get();
         return response()->json($offers, 200);
     }
@@ -33,6 +33,25 @@ class CommentController extends Controller
         catch (\Exception $e) {
             DB::rollBack();
             return response()->json("saving comment failed:" . $e->getMessage(), 420);
+        }
+    }
+
+    public function update(Request $request, string $id) : JsonResponse
+    {
+        DB::beginTransaction();
+        try {
+            $comment = Comment::where('id', $id)->first();
+            $comment->update($request->all());
+            $comment->save();
+            DB::commit();
+            $comment = Comment::where('id', $id)->first();
+            // return a vaild http response
+            return response()->json($comment, 201);
+        }
+        catch (\Exception $e) {
+            // rollback all queries
+            DB::rollBack();
+            return response()->json("updating comment failed: " . $e->getMessage(), 420);
         }
     }
 

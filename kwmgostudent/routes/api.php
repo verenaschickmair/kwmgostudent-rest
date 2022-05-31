@@ -31,19 +31,20 @@ Route::group(['middleware' => ['api', 'auth.jwt']], function(){
     Route::post('auth/logout', [AuthController::class,'logout']);
 
     //OFFERS
-    Route::put('offers/{id}',[OfferController::class,'update']);
     Route::post('offers',[OfferController::class,'save']);
+    Route::put('offers/{id}',[OfferController::class,'update']);
     Route::delete('offers/{id}', [OfferController::class,'delete']);
 
     //COMMENTS
     Route::post('offers/{id}', [CommentController::class,'save']);
-    Route::delete('comments/{id}', [CommentController::class,'delete']);
     Route::put('comments/{id}', [CommentController::class,'update']);
+    Route::delete('comments/{id}', [CommentController::class,'delete']);
 
     //APPOINTMENTS
+    Route::get('appointments/user/{id}', [AppointmentController::class,'findAllByUserId']);
     Route::put('appointments/{id}', [AppointmentController::class,'book']);
-    Route::get('appointments/user/{id}', [AppointmentController::class,'getAllByUserId']);
-
+    Route::put('appointments/{id}/cancel', [AppointmentController::class,'cancel']);
+    Route::delete('appointments/{id}', [AppointmentController::class,'delete']);
 });
 
 //AUTH
@@ -52,7 +53,7 @@ Route::post('auth/login', [AuthController::class,'login']);
 //SUBJECTS
 Route::get('subjects',[SubjectController::class,'index']);
 Route::get('subjects/{id}', [SubjectController::class, 'findById']);
-Route::get('subjects/{id}/offers', [OfferController::class, 'getAllBySubjectId']);
+Route::get('subjects/{id}/offers', [OfferController::class, 'findAllBySubjectId']);
 
 //USERS
 Route::get('users', [UserController::class, 'index']);
@@ -61,13 +62,13 @@ Route::get('users/{id}', [UserController::class, 'findById']);
 //OFFERS
 Route::get('offers',[OfferController::class,'index']);
 Route::get('offers/{id}',[OfferController::class,'findById']);
-Route::get('offers/{id}/appointments',[AppointmentController::class,'getAllByOfferId']);
+Route::get('offers/{id}/appointments',[AppointmentController::class,'findAllByOfferId']);
 
 //COMMENTS
-Route::get('offers/{id}/comments',[CommentController::class,'getAllByOfferId']);
+Route::get('offers/{id}/comments',[CommentController::class,'findAllByOfferId']);
 Route::get('comments', [CommentController::class,'index']);
 Route::get('comments/{id}', [CommentController::class,'findById']);
 
 //PROFILE
-Route::get('profile/{id}/comments',[OfferController::class,'findByUserId']);
+Route::get('profile/{id}/comments',[OfferController::class,'findAllByUserId']);
 

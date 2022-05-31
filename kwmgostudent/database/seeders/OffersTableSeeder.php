@@ -27,7 +27,7 @@ class OffersTableSeeder extends Seeder
             $offer->description=Str::random(10);
             $user = User::all()->first();
             $offer->user()->associate($user);
-            $subject = Subject::find(1);
+            $subject = Subject::find(2);
             $offer->subject()->associate($subject);
             $offer->save();
 
@@ -88,7 +88,7 @@ class OffersTableSeeder extends Seeder
             $offer = new Offer;
             $offer->name="Angebot für Deutsch";
             $offer->description=Str::random(10);
-            $user = User::find(1);
+            $user = User::find(2);
             $offer->user()->associate($user);
             $subject = Subject::find(3);
             $offer->subject()->associate($subject);
@@ -100,12 +100,14 @@ class OffersTableSeeder extends Seeder
             $appointment1->time_from=date('H:i',strtotime('11:00'));
             $appointment1->time_to=date('H:i',strtotime('14:00'));
             $appointment1->user_id=NULL;
+            $appointment1->status=NULL;
 
             $appointment2 = new Appointment;
             $appointment2->date=DateTime::createFromFormat('d/m/Y', '22/05/2013');
             $appointment2->time_from=date('H:i',strtotime('15:00'));
             $appointment2->time_to=date('H:i',strtotime('18:00'));
             $appointment2->user_id=NULL;
+            $appointment1->status=NULL;
             $offer->appointments()->saveMany([$appointment1,$appointment2]);
 
             // add comments to offer

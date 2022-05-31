@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
     {
         {
             $user = new User;
-            $user->username = "searcher";
+            $user->username = "student";
             $user->password = bcrypt('secret');
             $user->firstname = "Max";
             $user->lastname = "Mustermann";
