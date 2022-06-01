@@ -50,14 +50,7 @@ class User extends Authenticatable implements JWTSubject
         return ['user' => ['id' => $this->id]];
     }
 
-    /**
-     * Checks if user is searcher or teacher
-     */
-    public function isSearcher(int $status) : bool{
-        return $status === 0;
-    }
-
-    //Offers: hasMany Relation 1:n
+    //User: hasMany Relation 1:n
     public function offers() : hasMany{
         return $this->hasMany(Offer::class);
     }

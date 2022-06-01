@@ -45,5 +45,20 @@ class UsersTableSeeder extends Seeder
             $user->status = 1;
             $user->save();
         }
+        {
+            $user = new User;
+            $user->username = "teacher2";
+            $user->password = bcrypt('secret');
+            $user->firstname = 'Hans';
+            $user->lastname = 'Peter';
+            $user->course_of_studies = 'KWM';
+            $user->studies_type = "Bachelor";
+            $user->semester = 4;
+            $user->phone = 123456;
+            $user->email = "teacher2@gmail.com";
+            $user->status = 1;
+            $user->save();
+        }
     }
+
 }

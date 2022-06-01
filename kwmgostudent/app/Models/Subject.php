@@ -12,7 +12,7 @@ class Subject extends Model
 
     protected $fillable = ['id', 'lva', 'name', 'description'];
 
-    //Offers: hasMany Relation 1:n
+    //Subject: hasMany Relation 1:n
     public function offers(): hasMany
     {
         return $this->hasMany(Offer::class);

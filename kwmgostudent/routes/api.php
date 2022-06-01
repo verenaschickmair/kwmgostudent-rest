@@ -68,7 +68,5 @@ Route::get('offers/{id}/appointments',[AppointmentController::class,'findAllByOf
 Route::get('offers/{id}/comments',[CommentController::class,'findAllByOfferId']);
 Route::get('comments', [CommentController::class,'index']);
 Route::get('comments/{id}', [CommentController::class,'findById']);
-
-//PROFILE
-Route::get('profile/{id}/comments',[OfferController::class,'findAllByUserId']);
+Route::get('users/{id}/comments',[OfferController::class,'findAllByUserId']);
 

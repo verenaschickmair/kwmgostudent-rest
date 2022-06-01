@@ -22,33 +22,6 @@ class UserController extends Controller
         return User::where('id', $id)->first();
     }
 
-//    public function findByUsername(string $username) : User {
-//        $user = User::where('username', $username)
-//            ->with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-//            ->first();
-//        return $user;
-//    }
-//
-//    public function checkUsername (string $code) {
-//        $user =  User::where('username', $code)->first();
-//        return $user != null ?
-//            response()->json(true, 200) :
-//            response()->json(false, 200);
-//    }
-
-    /**
-     * find book by search term
-     * SQL injection is prevented by default, because Eloquent
-     * uses PDO parameter binding
-     */
-//    public function findBySearchTerm(string $searchTerm) {
-//        $user = User::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-//            ->where('firstname', 'LIKE', '%' . $searchTerm. '%')
-//            ->orWhere('lastname' , 'LIKE', '%' . $searchTerm. '%')
-//            ->orWhere('username' , 'LIKE', '%' . $searchTerm. '%');
-//        return $user;
-//    }
-
     /**
      * create new user
      */

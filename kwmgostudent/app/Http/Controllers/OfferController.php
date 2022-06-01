@@ -39,19 +39,6 @@ class OfferController extends Controller
     }
 
     /**
-     * find offer by search term
-     * SQL injection is prevented by default, because Eloquent
-     * uses PDO parameter binding
-     */
-    public function findBySearchTerm(string $searchTerm) {
-        $student = Offer::with(['firstname', 'lastname', 'course_of_studies', 'semester'])
-            ->where('firstname', 'LIKE', '%' . $searchTerm. '%')
-            ->orWhere('lastname' , 'LIKE', '%' . $searchTerm. '%')
-            ->orWhere('username' , 'LIKE', '%' . $searchTerm. '%');
-        return $student;
-    }
-
-    /**
      * create new offer
      */
 
